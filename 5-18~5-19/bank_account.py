@@ -1,4 +1,5 @@
-# Bank account program (unfinished)
+# Bank account program
+# Base done #5/25/26
 
 import random
 import time
@@ -8,34 +9,38 @@ balance = 100
 
 # BANK INTERFACE
 def bank_interface():
-    welcome_msg = f"\t-------------Welcome {username}-------------\t"
-    main_ui = f"\t| Current Balance: {balance} |\t\n\n\t[1]DEPOSIT\t[2]WITHDRAW"
     global balance
+    welcome_msg = f"\t-------------Welcome {username}-------------\t"
   
     for i in range(10):
         print(".")
    
-    print(welcome_msg.upper())
-    print(main_ui)
-    ui_nav = int(input("\nSelect Option>> "))
     while True:
+        for i in range(20):
+            print(".")
+
+        main_ui = f"\t| Current Balance: {balance} |\t\n\n\t[1]DEPOSIT\t[2]WITHDRAW"
+       
+        print(welcome_msg.upper())
+        print(main_ui)
+       
+        ui_nav = int(input("\nSelect Option>> "))
         if ui_nav == 1:
-            print("Deposit menu")
             deposit_input = int(input("How much would you like to deposit? >> $"))
-            if deposit_input == deposit_input:
+            if deposit_input > 0:
                 balance += deposit_input
-                time.sleeo(1)
                 print("Balance added successfully!")
-                bank_interface()
-                break
-            break
+                time.sleep(2)
         elif ui_nav == 2:
-            print("Withdrawl")
-            break
+            deposit_input = int(input("How much would you like to withdraw? >> $"))
+            if deposit_input > 0:
+                balance -= deposit_input
+                print("Balance Withdrawn successfully!")
+                time.sleep(2)
         else:
             print("Not a valid choice, please try again")
     
-#THE ARE YOU SURE? FUNCTION
+#THE ARE YOU SURE? FUNCTION (I don't know if I am actually gonna put this in lol)
 """def ask_again():
     ask_input = int(input("Are you sure you want to select this option?\n[1]Yes\t[2]Cancel\nSelect Option>> "))
     while True:
@@ -49,7 +54,6 @@ def bank_interface():
 
 #LAUNCH ANIMATION/INITIATION
 for i in range(4):
-    pass
     time.sleep(1)
     print(".", end="", flush=True)
 
@@ -59,7 +63,6 @@ print(f"Welcome {username}")
 time.sleep(1)
 
 while True:
-    pass
     pass_input = int(input("\nPlease enter four digit passcode...\n\n"))
     if pass_input == passcode:
         print("access granted")
