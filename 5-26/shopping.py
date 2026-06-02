@@ -22,8 +22,6 @@ def login():
     return username
 
 def shopping_cart(cart_items, username):
-    
-    
     while True:
         for i in range(20):
             print(".")
@@ -37,6 +35,7 @@ def shopping_cart(cart_items, username):
         elif choice == 2:
             cart_items.clear()
             print("All items have been cleared!")
+            time.sleep(1)
         else:
             print("Invalid, please enter in a number")
 
